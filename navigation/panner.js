@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, PanResponder, Dimensions } from 'react-native'
 
 import * as theme from '../theme';
@@ -8,16 +8,18 @@ import Text from './Text';
 const { height } = Dimensions.get('window');
 const CONTROLLER_HEIGHT = height * 0.25;
 
-class PanSlider extends Component {
-  state = { 
-    panValue: 0,
-    rangeValue: 0,
-    percentage: 0,
-  }
+function PanSlider () {
+  
+   const [panValue,setPanValue]=useState(0);
+    const [rangeValue,setRangeValue]=useState(0);
+    const [percentage,setPercentage]=useState(0);
+    let minValue=10;
+    let maxValue=45;
 
-  handleMove = moveValue => {
-    const { panValue } = this.state;
-    const { minValue, maxValue } = this.props;
+  const handleMove = moveValue => {
+    // const { panValue } = this.state;
+    // const { minValue, maxValue } = this.props;
+    
     const max = maxValue > CONTROLLER_HEIGHT ? maxValue : CONTROLLER_HEIGHT;
     const range = (maxValue || max) - minValue;
 
@@ -28,20 +30,23 @@ class PanSlider extends Component {
     const percentage = (value / max) * 100;
     const rangeValue = (range * percentage) / 100;
 
-    this.setState({ panValue: value, rangeValue, percentage });
+    // this.setState({ panValue: value, rangeValue, percentage });
+    setPanValue(value);
+    setRangeValue(rangeValue);
+    setPercentage(percentage);
   }
 
-  panResponder = PanResponder.create({
+  const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onStartShouldSetPanResponderCapture: () => true,
     onMoveShouldSetPanResponder: () => true,
     onMoveShouldSetPanResponderCapture: () => true,
-    onPanResponderMove: (evt, { dy }) => this.handleMove(dy)
+    onPanResponderMove: (evt, { dy }) => handleMove(dy)
   })
 
-  render() {
-    const { minValue } = this.props;
-    const { rangeValue, percentage } = this.state;
+  // render() {
+  //   const { minValue } = this.props;
+  //   const { rangeValue, percentage } = this.state;
 
     return (
       <Block flex={0.5} row>
@@ -55,7 +60,7 @@ class PanSlider extends Component {
             </Block>
             <Text caption>Temperature</Text>
           </Block>
-      <Block right {...this.panResponder.panHandlers} style={styles.controller}>
+      <Block right {...panResponder.panHandlers} style={styles.controller}>
         
         <Block center style={styles.controllerValue}>
         
@@ -68,12 +73,12 @@ class PanSlider extends Component {
       </Block>
     )
   }
-}
+// }
 
-PanSlider.defaultProps = {
-  minValue: 10,
-  maxValue: 45,
-}
+// PanSlider.defaultProps = {
+  // minValue: 10,
+  // maxValue: 45,
+// }
 
 export default PanSlider;
 

@@ -5,6 +5,7 @@ import {
   MaterialIcons
 } from "@expo/vector-icons";
 import * as theme from "./theme";
+import { Settings } from "react-native";
 
 export default {
   light: {

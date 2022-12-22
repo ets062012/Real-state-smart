@@ -10,9 +10,10 @@ import Wifi from "./Wifi";
 import Electricity from "./Electricty";
 import { useNavigation } from "@react-navigation/native";
 import settings from "../settings";
+import Dashboard from "./Dashboard";
 import { auth } from "./firebase";
 // import { auth } from "./firebase";
- function Dashboard ()  {
+ function BedRoom ()  {
   // static navigationOptions = {
   //   headerShown: false
   // };
@@ -36,12 +37,9 @@ import { auth } from "./firebase";
 
         <Block row style={{ paddingVertical: 10 }}>
           <Block flex={1.5} row style={{ alignItems: "flex-end" }}>
-            <Text h1>34</Text>
-            <Text h1 size={34} height={80} weight="600" spacing={0.1}>
-              °C
-            </Text>
+          <Text style={{ fontSize: 50}}>Bed Room</Text>
           </Block>
-          <Block flex column>
+          {/* <Block flex column>
             <Text caption>Humidity</Text>
             <LineChart
               yMax={100}
@@ -51,7 +49,7 @@ import { auth } from "./firebase";
               curve={shape.curveNatural}
               svg={{ stroke: theme.colors.accent, strokeWidth: 3 }}
             />
-          </Block>
+          </Block> */}
         </Block>
 
         <ScrollView
@@ -164,7 +162,7 @@ Dashboard.defaultProps = {
   settings: mocks
 };
 
-export default Dashboard;
+export default BedRoom;
 
 const styles = StyleSheet.create({
   dashboard: {

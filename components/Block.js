@@ -6,7 +6,6 @@ export default class Block extends Component {
     const { flex, row, column, center, middle, right, space, style, children, ...props } = this.props;
     const blockStyles = [
       styles.block,
-      flex && { flex },
       flex === 'disabled' && { flex: 0 },
       center && styles.center,
       middle && styles.middle,
