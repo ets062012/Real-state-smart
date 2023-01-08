@@ -16,6 +16,11 @@ import { StyleSheet, TouchableWithoutFeedback,Button,Slider,Switch,Text } from '
 import { FontAwesome } from '@expo/vector-icons';
 import LivingRoom from "../screens/LivingRoom";
 import BedRoom from "../screens/BedRoom";
+import Door from "../screens/Door";
+import Window from "../screens/Window";
+import Kitchen from "../screens/Dashboard";
+import Stove from "../screens/Stove";
+import Fridge from "../screens/Fridge";
 // import { NavigationContainer } from "@react-navigation/native";
 // export default createStackNavigator(
 //   {
@@ -59,10 +64,10 @@ return(
 screenOptions={{headerShown:true}}
 >
          {/* <Drawer.Screen name='SmartHome' component={SmartHome}/> */}
-         <Drawer.Screen   name="Dashboard" component={Dashboard}/>
+        
         <Drawer.Screen name='LivngRoom' component={LivingRoom}/>
-       
-        <Drawer.Screen name='BedRoom' component={BedRoom}/>
+       <Drawer.Screen name='BedRoom' component={BedRoom}/>
+        <Drawer.Screen   name="Kitchen" component={Kitchen}/>
 
     </Drawer.Navigator>
 
@@ -92,15 +97,17 @@ headerStyle: {
 
 <HomeStack.Screen   name="Login" component={LoginScreen}   options={{title:"Login"}}/>
 <HomeStack.Screen   name="Drawer" component={NavigationContents}   options={{title:"SmartHome"}}/>
-<HomeStack.Screen   name="Dashboard" component={Dashboard}   options={{title:"Dashboard"}}/>
+<HomeStack.Screen   name="Stove" component={Stove}   options={{title:"Stove"}}/>
 
-
+<HomeStack.Screen   name="Fridge" component={Fridge}   options={{title:"Fridge"}}/>
 <HomeStack.Screen   name="Light" component={Light}   options={{title:"Light"}}/>
 <HomeStack.Screen   name="Fan" component={Fan}   options={{title:"Fan"}}/>
 <HomeStack.Screen   name="Ac" component={Ac}   options={{title:"Ac"}}/>
 <HomeStack.Screen   name="Wifi" component={Wifi}   options={{title:"Wifi"}}/>
 <HomeStack.Screen   name="Electricity" component={Electricity}   options={{title:"Electricity"}}/>
 <HomeStack.Screen   name="Settings" component={Settings}   options={{title:"Settings"}}/>
+<HomeStack.Screen   name="Door" component={Door}   options={{title:"Door"}}/>
+<HomeStack.Screen   name="Window" component={Window}   options={{title:"Window"}}/>
 </HomeStack.Navigator>
 
 

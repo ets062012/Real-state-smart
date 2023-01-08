@@ -7,7 +7,7 @@ import { Block, Text, PanSlider } from '../components';
 // import mocks from '../settings';
 
 
-function Ac()  {
+function Door()  {
  
   const [switchValue, setSwitchValue] = useState(false);
 
@@ -25,7 +25,7 @@ function Ac()  {
             
             <Block flex={1.2} row style={{ alignItems: 'flex-end', }}>
             <Block flex={0.5} row>
-        <Text style={{ fontSize: 30}}>{switchValue ? 'AC is ON' : 'AC is OFF'}</Text>
+        <Text style={{ fontSize: 30}}>{switchValue ? 'Door is opened' : 'Door is closed'}</Text>
         
         <Switch
           
@@ -48,7 +48,7 @@ function Ac()  {
   }
 
 
-export default Ac;
+export default Door;
 
 const styles = StyleSheet.create({
   settings: {

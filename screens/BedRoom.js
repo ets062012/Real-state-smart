@@ -27,13 +27,15 @@ import { auth } from "./firebase";
     const FanIcon = settings["fan"].icon;
     const WiFiIcon = settings["wi-fi"].icon;
     const ElectricityIcon = settings["electricity"].icon;
+    const DoorIcon=settings["door"].icon;
+    const WindowIcon=settings["window"].icon;
 
     return (
       <Block style={styles.dashboard}>
-        <Block column style={{ marginVertical: theme.sizes.base * 2 }}>
+        {/* <Block column style={{ marginVertical: theme.sizes.base * 2 }}>
           <Text welcome>Hello</Text>
           <Text name>{auth.currentUser?.email}</Text>
-        </Block>
+        </Block> */}
 
         <Block row style={{ paddingVertical: 10 }}>
           <Block flex={1.5} row style={{ alignItems: "flex-end" }}>
@@ -147,6 +149,44 @@ import { auth } from "./firebase";
                   <ElectricityIcon size={38} />
                   <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
                     {settings["electricity"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+              </Block>
+
+<Block
+  row
+  space="around"
+  style={{ marginVertical: theme.sizes.base }}
+>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Door")
+                }
+              >
+                
+            
+                <Block center middle style={styles.button}>
+                  <DoorIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {settings["door"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+              
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Window")
+                }
+              >
+                
+            
+                <Block center middle style={styles.button}>
+                  <WindowIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {settings["window"].name}
                   </Text>
                 </Block>
               </TouchableOpacity>

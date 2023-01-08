@@ -7,7 +7,7 @@ import { Block, Text, PanSlider } from '../components';
 // import mocks from '../settings';
 
 
-function Ac()  {
+function Stove()  {
  
   const [switchValue, setSwitchValue] = useState(false);
 
@@ -25,7 +25,7 @@ function Ac()  {
             
             <Block flex={1.2} row style={{ alignItems: 'flex-end', }}>
             <Block flex={0.5} row>
-        <Text style={{ fontSize: 30}}>{switchValue ? 'AC is ON' : 'AC is OFF'}</Text>
+        <Text style={{ fontSize: 30}}>{switchValue ? 'stove is on' : 'stove is off'}</Text>
         
         <Switch
           
@@ -48,7 +48,7 @@ function Ac()  {
   }
 
 
-export default Ac;
+export default Stove;
 
 const styles = StyleSheet.create({
   settings: {

@@ -10,9 +10,11 @@ import Wifi from "./Wifi";
 import Electricity from "./Electricty";
 import { useNavigation } from "@react-navigation/native";
 import settings from "../settings";
+import Dashboard from "./Dashboard";
 import { auth } from "./firebase";
+
 // import { auth } from "./firebase";
- function Dashboard ()  {
+ function Kitchen ()  {
   // static navigationOptions = {
   //   headerShown: false
   // };
@@ -26,22 +28,23 @@ import { auth } from "./firebase";
     const FanIcon = settings["fan"].icon;
     const WiFiIcon = settings["wi-fi"].icon;
     const ElectricityIcon = settings["electricity"].icon;
+    const DoorIcon=settings["door"].icon;
+    const WindowIcon=settings["window"].icon;
+    const StoveIcon=settings["stove"].icon;
+    const FridgeIcon=settings["fridge"].icon;
 
     return (
       <Block style={styles.dashboard}>
-        <Block column style={{ marginVertical: theme.sizes.base * 2 }}>
+        {/* <Block column style={{ marginVertical: theme.sizes.base * 2 }}>
           <Text welcome>Hello</Text>
           <Text name>{auth.currentUser?.email}</Text>
-        </Block>
+        </Block> */}
 
         <Block row style={{ paddingVertical: 10 }}>
           <Block flex={1.5} row style={{ alignItems: "flex-end" }}>
-            <Text h1>34</Text>
-            <Text h1 size={34} height={80} weight="600" spacing={0.1}>
-              °C
-            </Text>
+          <Text style={{ fontSize: 50}}>Kitchen</Text>
           </Block>
-          <Block flex column>
+          {/* <Block flex column>
             <Text caption>Humidity</Text>
             <LineChart
               yMax={100}
@@ -51,7 +54,7 @@ import { auth } from "./firebase";
               curve={shape.curveNatural}
               svg={{ stroke: theme.colors.accent, strokeWidth: 3 }}
             />
-          </Block>
+          </Block> */}
         </Block>
 
         <ScrollView
@@ -128,13 +131,13 @@ import { auth } from "./firebase";
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() =>
-                  navigation.navigate("Wifi")
+                  navigation.navigate("Fridge")
                 }
               >
                 <Block center middle style={styles.button}>
-                  <WiFiIcon size={38} />
+                  <FridgeIcon size={38} />
                   <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
-                    {settings["wi-fi"].name}
+                    {settings["fridge"].name}
                   </Text>
                 </Block>
               </TouchableOpacity>
@@ -142,13 +145,51 @@ import { auth } from "./firebase";
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() =>
-                  navigation.navigate("Electricity")
+                  navigation.navigate("Stove")
                 }
               >
                 <Block center middle style={styles.button}>
-                  <ElectricityIcon size={38} />
+                  <StoveIcon size={38} />
                   <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
-                    {settings["electricity"].name}
+                    {settings["stove"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+              </Block>
+
+<Block
+  row
+  space="around"
+  style={{ marginVertical: theme.sizes.base }}
+>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Door")
+                }
+              >
+                
+            
+                <Block center middle style={styles.button}>
+                  <DoorIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {settings["door"].name}
+                  </Text>
+                </Block>
+              </TouchableOpacity>
+              
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() =>
+                  navigation.navigate("Window")
+                }
+              >
+                
+            
+                <Block center middle style={styles.button}>
+                  <WindowIcon size={38} />
+                  <Text button style={{ marginTop: theme.sizes.base * 0.5 }}>
+                    {settings["window"].name}
                   </Text>
                 </Block>
               </TouchableOpacity>
@@ -160,11 +201,11 @@ import { auth } from "./firebase";
   }
 // }
 
-Dashboard.defaultProps = {
-  settings: mocks
-};
+// Dashboard.defaultProps = {
+//   settings: mocks
+// };
 
-export default Dashboard;
+export default Kitchen;
 
 const styles = StyleSheet.create({
   dashboard: {

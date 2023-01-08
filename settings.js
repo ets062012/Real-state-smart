@@ -2,7 +2,8 @@ import React from "react";
 import {
   FontAwesome,
   MaterialCommunityIcons,
-  MaterialIcons
+  MaterialIcons,
+  FontAwesome5
 } from "@expo/vector-icons";
 import * as theme from "./theme";
 import { Settings } from "react-native";
@@ -73,5 +74,46 @@ export default {
         {...props}
       />
     )
+  },
+  door: {
+    name: "Door",
+    icon: ({ size, color, ...props }) => (
+      // <MaterialIcons
+      //   size={size || theme.sizes.font}
+      //   color={color || theme.colors.accent}
+      //   name="door-closed"
+      //   {...props}
+      // />
+      <FontAwesome5 
+      
+      name="door-closed" 
+      size={size || theme.sizes.font}
+        color={color || theme.colors.accent}
+      
+      />
+    )
+  },
+  window: {
+    name: "Window",
+    icon: ({ size, color, ...props }) => (
+      <MaterialCommunityIcons name="window-closed-variant" size={size || theme.sizes.font}
+      color={color || theme.colors.accent} />
+    )
+  },
+  stove:{
+    name: "stove",
+    icon: ({ size, color, ...props }) => (
+      <MaterialCommunityIcons name="stove" size={size || theme.sizes.font}
+      color={color || theme.colors.accent} />
+    )
+
+  },
+  fridge:{
+    name: "fridge",
+    icon: ({ size, color, ...props }) => (
+      <MaterialCommunityIcons name="fridge" size={size || theme.sizes.font}
+      color={color || theme.colors.accent} />
+    )
+
   }
 };

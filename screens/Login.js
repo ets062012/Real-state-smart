@@ -10,8 +10,8 @@ import Dashboard from "./Dashboard";
 import SmartHome from '../navigation/SmartHome';
 import { auth } from "./firebase";
 const LoginScreen=()=>{
-    const [email,setEmail]=useState('');
-    const [password,setPassword]=useState('');
+    const [email,setEmail]=useState(null);
+    const [password,setPassword]=useState(null);
 const navigation=useNavigation();
 //const userRefCollection=collection(db,"users")
 // useEffect(()=>{
